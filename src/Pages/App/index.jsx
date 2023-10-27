@@ -7,8 +7,10 @@ import MyOrders from '../MyOrders'
 import NotFound from '../NotFound'
 import SignIn from '../SignIn'
 import './App.css'
+import Navbar from '../../Components/Navbar'
 
 function AppRoutes() {
+
   const routes = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/my-account', element: <MyAccount /> },
@@ -16,27 +18,16 @@ function AppRoutes() {
     { path: '/my-orders', element: <MyOrders /> },
     { path: '/sign-in', element: <SignIn /> },
     { path: '/*', element: <NotFound /> },
-
   ])
-
-  /* Say hello
-      <Home />
-      <MyAccount />
-      <MyOrder />
-      <MyOrders />
-      <NotFound />
-      <SignIn /> */
   return routes
 }
 
 function App() {
-
-
   return (
     <BrowserRouter>
+      <Navbar />
       <AppRoutes />
     </BrowserRouter>
-
   )
 }
 
