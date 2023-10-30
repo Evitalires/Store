@@ -4,13 +4,6 @@ function Navbar() {
   const activeStyle = (isActive) => {
     return isActive ? 'underline underline-offset-4 decoration-wavy text-black' : undefined
   }
-  const links = [
-    { to: '/', textLink: 'Flow' },
-    { to: '/my-orders', textLink: 'My Orders' },
-    { to: '/my-account', textLink: 'My Account' },
-    { to: '/sign-in', textLink: 'Sign In' },
-    { to: '/my-order', textLink: 'My Order 🛒' },
-  ]
 
   return (
     <nav className="text-black/70 flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light"  >
