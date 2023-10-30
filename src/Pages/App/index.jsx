@@ -8,9 +8,10 @@ import NotFound from '../NotFound'
 import SignIn from '../SignIn'
 import './App.css'
 import Navbar from '../../Components/Navbar'
+import Layout from '../../Components/Layout'
+
 
 function AppRoutes() {
-
   const routes = useRoutes([
     { path: '/', element: <Home /> },
     { path: '/my-account', element: <MyAccount /> },
@@ -26,9 +27,10 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <AppRoutes />
+      <Layout>
+        <AppRoutes />
+      </Layout>
     </BrowserRouter>
   )
 }
-
 export default App

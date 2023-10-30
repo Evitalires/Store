@@ -13,11 +13,11 @@ function Navbar() {
   ]
 
   return (
-    <nav className="flex justify-between items-center fixed z-10 py-5 px-8 font-light text-black/70 w-full"  >
+    <nav className="text-black/70 flex justify-between items-center fixed z-10 top-0 w-full py-5 px-8 text-sm font-light"  >
       <ul className="flex gap-3 items-center">
-        <li className="font-semibold text-lg text-black ">
+        <li className="font-extrabold text-xl text-black">
           <NavLink to={'/'}>
-            {'Flow'}
+            {'Shopi'}
           </NavLink>
         </li>
         <li>
