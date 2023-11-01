@@ -9,6 +9,7 @@ import SignIn from '../SignIn'
 import './App.css'
 import Navbar from '../../Components/Navbar'
 import Layout from '../../Components/Layout'
+import { CartContextProvider } from '../../Context'
 
 
 function AppRoutes() {
@@ -25,12 +26,14 @@ function AppRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-      <Layout>
-        <AppRoutes />
-      </Layout>
-    </BrowserRouter>
+    <CartContextProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Layout>
+          <AppRoutes />
+        </Layout>
+      </BrowserRouter>
+    </CartContextProvider>
   )
 }
 export default App

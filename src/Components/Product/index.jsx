@@ -1,9 +1,6 @@
-export default function Product({ id, title, description, image, price, category }) {
-  const buyItem = (e) => {
-    console.log(e.target);
-  }
+export default function Product({ id, title, description, image, price, category, buyProduct }) {
   return (
-    <article className="bg-white cursor-pointer flex flex-col justify-start items-center gap-2 rounded-lg shadow-sm w-48 h-96 p-4 text-sm font-light">
+    <article className="bg-white cursor-pointer flex flex-col justify-start items-center gap-2 rounded-lg shadow-sm w-48 min-h-min p-4 text-sm font-light">
       <figure className="relative pb-2 text-white">
         <img
           className="h-48 w-full rounded-lg object-contain object-center border-2"
@@ -11,7 +8,7 @@ export default function Product({ id, title, description, image, price, category
           alt="nature image"
         />
         <span className="absolute top-2 right-1 p-1 px-2 rounded-lg bg-black/70 text-xs">{category}</span>
-        <button onClick={buyItem} className="absolute -bottom-2 inset-x-1/4 text-large w-20 bg-black" >Buy</button>
+        <button onClick={buyProduct} className="absolute -bottom-2 inset-x-1/4 text-large w-20 bg-black" >Buy</button>
       </figure>
       <p className="w-full flex flex-col gap-2 py-2">
         <span className="truncate text-bold text-lg">{title}</span>
