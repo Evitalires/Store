@@ -6,34 +6,33 @@ import ProductDetail from "../../Components/ProductDetail"
 
 function Home() {
   const [products, setProducts] = useState(null)
-  const { count, setCount, openProductDetail, productDetailOpen } = useContext(CartContext)
+  const { productDetailOpen, productsToShow } = useContext(CartContext)
 
-  const buyProduct = () => {
-    setCount(count + 1)
-    openProductDetail()
-  }
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
       .then(data => setProducts(data))
   }, [])
 
+  const ListProducts = ({ items, type }) => {
+    console.log(items);
+    return (
+      items?.map((item) => (
+        <Product
+          product={item}
+          key={item.id}
+          type={type}
+        />
+      ))
+    )
+  }
+
   return (
     <section className={`grid ${productDetailOpen && "w-3/4"} grid-cols-4 items-center justify-items-center gap-2`}>
-      {
-        products?.map((product) => (
-          <Product
-            key={product.id}
-            title={product.title}
-            category={product.category}
-            price={product.price}
-            image={product.image}
-            description={product.description}
-            buyProduct={buyProduct}
-          />
-        ))
-      }
-      <ProductDetail />
+      <ListProducts items={products} type='home' />
+      <ProductDetail>
+        <ListProducts items={productsToShow} type='cart' />
+      </ProductDetail>
     </section>
   )
 }
