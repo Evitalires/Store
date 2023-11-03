@@ -2,8 +2,6 @@ import ProductCart from "../ProductCart"
 import ProductHome from "../ProductHome"
 
 
-
-
 export default function Product({ product, type }) {
   const TypeProduct = {
     cart: <ProductCart product={product} />,

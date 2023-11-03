@@ -3,11 +3,19 @@ import { CartContext } from "../../Context"
 
 export default function ProductHome({ product }) {
   const { title, description, image, price, category } = product
-  const { count, setCount, openProductDetail, productsToShow, setProductsToShow } = useContext(CartContext)
+  const { count, setCount, openProductDetail, cartProducts, setCartProducts } = useContext(CartContext)
   const onClick = () => {
-    const newProducts = [...productsToShow]
-    newProducts.push(product)
-    setProductsToShow(newProducts)
+    const newProducts = [...cartProducts]
+    //It's in cart
+    if (newProducts.find(item => item.id === product.id)) {
+      const index = newProducts.findIndex(item => item.id === product.id)
+      newProducts[index].quantity += 1;
+    }
+    else {
+      product.quantity = 1
+      newProducts.push(product)
+    }
+    setCartProducts([...newProducts])
     setCount(count + 1)
     openProductDetail(true)
   }

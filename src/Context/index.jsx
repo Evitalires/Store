@@ -12,7 +12,10 @@ export function CartContextProvider({ children }) {
   const closeProductDetail = () => setProductDetailOpen(false)
 
   //  Products Detail · Show products
-  const [productsToShow, setProductsToShow] = useState([])
+  const [productsHome, setProductsHome] = useState([])
+
+  //  Products Cart · Show products
+  const [cartProducts, setCartProducts] = useState([])
 
   return (
     <CartContext.Provider value={{
@@ -22,8 +25,10 @@ export function CartContextProvider({ children }) {
       setProductDetailOpen,
       openProductDetail,
       closeProductDetail,
-      productsToShow,
-      setProductsToShow,
+      productsHome,
+      setProductsHome,
+      cartProducts,
+      setCartProducts
     }}>
       {children}
     </CartContext.Provider>
