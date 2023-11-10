@@ -16,6 +16,15 @@ export function CartContextProvider({ children }) {
 
   //  Products Cart · Show products
   const [cartProducts, setCartProducts] = useState([])
+  const deleteCartProducts = (elem) => {
+    const copyCartProducts = [...cartProducts]
+    const UpdatedCartProducts = copyCartProducts.filter(item => item.id !== elem.id)
+    setCartProducts([...UpdatedCartProducts])
+    setCount(UpdatedCartProducts.length)
+  }
+
+  //  Saved Products · 
+  const [savedProducts, setSavedProducts] = useState([])
 
   return (
     <CartContext.Provider value={{
@@ -28,7 +37,8 @@ export function CartContextProvider({ children }) {
       productsHome,
       setProductsHome,
       cartProducts,
-      setCartProducts
+      setCartProducts,
+      savedProducts, setSavedProducts, deleteCartProducts,
     }}>
       {children}
     </CartContext.Provider>

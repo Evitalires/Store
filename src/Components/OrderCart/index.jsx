@@ -3,10 +3,12 @@ import { CartContext } from '../../Context'
 import { useContext } from 'react'
 
 
-export default function ProductDetail({ children }) {
+
+
+
+export default function OrderCart({ children }) {
   const { productDetailOpen, closeProductDetail, } = useContext(CartContext)
   const ProductDetailLayout = productDetailOpen ? 'fixed' : 'hidden'
-  console.log(productDetailOpen);
 
 
   return (

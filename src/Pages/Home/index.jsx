@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react"
 import { CartContext } from "../../Context"
-import ProductDetail from "../../Components/ProductDetail"
+import OrderCart from "../../Components/OrderCart"
 import ListProducts from "../../Components/ListProducts"
 
 
@@ -17,9 +17,9 @@ function Home() {
   return (
     <section className={`grid ${productDetailOpen && "w-3/4"} grid-cols-4 items-center justify-items-center gap-2`}>
       <ListProducts items={productsHome} type='home' />
-      <ProductDetail>
+      <OrderCart>
         <ListProducts items={cartProducts} type='cart' />
-      </ProductDetail>
+      </OrderCart>
     </section>
   )
 }
