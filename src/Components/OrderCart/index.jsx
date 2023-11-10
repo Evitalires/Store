@@ -7,7 +7,7 @@ import { useContext } from 'react'
 
 
 export default function OrderCart({ children }) {
-  const { productDetailOpen, closeProductDetail, } = useContext(CartContext)
+  const { productDetailOpen, closeProductDetail, totalCartProduct } = useContext(CartContext)
   const ProductDetailLayout = productDetailOpen ? 'fixed' : 'hidden'
 
 
@@ -23,7 +23,7 @@ export default function OrderCart({ children }) {
         {children}
       </main>
       <footer className='h-10 w-full p-2'>
-        <p>Total</p>
+        <p>Total: $ {totalCartProduct}</p>
       </footer>
     </aside>
   )

@@ -3,7 +3,7 @@ import { CartContext } from "../../Context"
 
 export default function ProductHome({ product }) {
   const { title, description, image, price, category } = product
-  const { count, setCount, openProductDetail, cartProducts, setCartProducts } = useContext(CartContext)
+  const { count, setCount, openProductDetail, cartProducts, setCartProducts, setTotalCartProducts, countTotalCartProducts } = useContext(CartContext)
   const onClick = () => {
     const newProducts = [...cartProducts]
     //It's in cart
@@ -17,6 +17,7 @@ export default function ProductHome({ product }) {
     }
     setCartProducts([...newProducts])
     setCount(count + 1)
+    countTotalCartProducts(newProducts)
     openProductDetail(true)
   }
   return (
