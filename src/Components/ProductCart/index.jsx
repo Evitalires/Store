@@ -1,12 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { CartContext } from "../../Context";
+import CounterProduct from "../CounterProduct";
 
 
 export default function ProductCart({ product }) {
 
-  const { title, image, price, quantity } = product
+  const { title, image, price, quantity, id } = product
   const { deleteCartProducts, savedProducts, setSavedProducts } = useContext(CartContext)
-
+  console.log(quantity);
   const onDelete = () => {
     deleteCartProducts(product)
   }
@@ -29,14 +30,14 @@ export default function ProductCart({ product }) {
           <p className="text-bold text-sm">
             {title}
           </p>
-          <p className="flex gap-2 justify-around text-blue-600">
+          <div className="flex gap-2 justify-around text-blue-600">
             <span onClick={onDelete}>Delete</span>
             <span onClick={onSave}>Save</span>
-          </p>
-          <p className="flex gap-2 justify-around font-bold">
-            <span>{quantity}u.</span>
+          </div>
+          <div className="flex gap-2 justify-between font-bold">
+            <CounterProduct quantity={quantity} id={id} />
             <span> ${quantity * price} </span>
-          </p>
+          </div>
         </div>
       </div>
     </article>

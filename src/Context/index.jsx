@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { totalPrice, totalUnits } from "../Utils";
 
 export const CartContext = createContext()
 
@@ -23,19 +24,25 @@ export function CartContextProvider({ children }) {
     const UpdatedCartProducts = copyCartProducts.filter(item => item.id !== elem.id)
     setCartProducts([...UpdatedCartProducts])
     setCount(UpdatedCartProducts.length)
+    countTotalCartProducts(UpdatedCartProducts)
   }
   //  Products Cart · Total
   const [totalCartProduct, setTotalCartProducts] = useState()
+  const [totalCartUnits, setTotalCartUnits] = useState()
 
   const countTotalCartProducts = (products) => {
-    let totalCount = 0
-    products.forEach(item => {
-      totalCount += (item.price * item.quantity)
-    })
-    setTotalCartProducts(totalCount.toFixed(2))
+    setTotalCartProducts(totalPrice(products).toFixed(2))
+    setTotalCartUnits(totalUnits(products))
   }
 
-
+  // Products Cart - Add - Remove
+  const updatedProductQuantity = (counter, id) => {
+    const copyCartProducts = [...cartProducts]
+    const indexProduct = copyCartProducts.findIndex(item => item.id === id)
+    copyCartProducts[indexProduct].quantity = counter
+    setCartProducts(copyCartProducts)
+    countTotalCartProducts(copyCartProducts)
+  }
 
 
   //  Saved Products · 
@@ -54,7 +61,9 @@ export function CartContextProvider({ children }) {
       cartProducts,
       setCartProducts,
       savedProducts, setSavedProducts, deleteCartProducts,
-      totalCartProduct, setTotalCartProducts, countTotalCartProducts
+      totalCartProduct, setTotalCartProducts, countTotalCartProducts,
+      totalCartUnits, setTotalCartUnits,
+      updatedProductQuantity
     }}>
       {children}
     </CartContext.Provider>
