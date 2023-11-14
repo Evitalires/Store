@@ -44,9 +44,17 @@ export function CartContextProvider({ children }) {
     countTotalCartProducts(copyCartProducts)
   }
 
-
-  //  Saved Products · 
+  const resetCartProduct = () => {
+    setCartProducts([])
+    setTotalCartUnits('')
+    setTotalCartProducts(0)
+    setCount(0)
+  }
+  //  Saved Products 
   const [savedProducts, setSavedProducts] = useState([])
+
+  // Shopping Cart · Order
+  const [orders, setOrders] = useState([])
 
   return (
     <CartContext.Provider value={{
@@ -63,7 +71,9 @@ export function CartContextProvider({ children }) {
       savedProducts, setSavedProducts, deleteCartProducts,
       totalCartProduct, setTotalCartProducts, countTotalCartProducts,
       totalCartUnits, setTotalCartUnits,
-      updatedProductQuantity
+      updatedProductQuantity,
+      orders, setOrders,
+      resetCartProduct
     }}>
       {children}
     </CartContext.Provider>
