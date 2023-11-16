@@ -16,7 +16,7 @@ function Navbar() {
       <ul className="flex gap-3 items-center">
         <li className="font-extrabold text-xl text-black">
           <NavLink to={'/'}>
-            {'Shopi'}
+            {'Flowi'}
           </NavLink>
         </li>
         <li>

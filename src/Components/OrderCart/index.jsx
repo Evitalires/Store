@@ -4,7 +4,11 @@ import { useContext } from 'react'
 import { Link } from 'react-router-dom'
 
 
-
+function generateRandomId(date) {
+  const randomNum = Math.floor(Math.random() * 1000); // Adjust the range as needed
+  const orderId = `${date}-${randomNum}`;
+  return orderId;
+}
 
 
 export default function OrderCart({ children }) {
@@ -15,6 +19,7 @@ export default function OrderCart({ children }) {
     const currentDate = new Date();
     console.log(currentDate);
     const newOrder = {
+      id: generateRandomId(currentDate),
       date: currentDate,
       products: cartProducts,
       totalCartUnits: totalCartUnits,
