@@ -13,6 +13,7 @@ import { CartContextProvider } from '../../Context'
 
 function AppRoutes() {
   const routes = useRoutes([
+    { path: '/store', element: <Home /> },
     { path: '/', element: <Home /> },
     { path: '/all', element: <Home /> },
     { path: '/clothing', element: <Home /> },
