@@ -20,7 +20,7 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/'} className={({ isActive }) => activeStyle(isActive)}>
+          <NavLink to={'/all'} className={({ isActive }) => activeStyle(isActive)}>
             {'All'}
           </NavLink>
         </li>

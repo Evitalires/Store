@@ -9,15 +9,18 @@ function Home() {
   const { productDetailOpen, cartProducts } = useContext(CartContext)
 
   const filterProducts = (products) => {
-
     const url = window.location.href
+    console.log(url);
     const category = url.split('/').pop();
 
-    const newProducts = products.filter(product =>
-      category ? product.category.toLowerCase().includes(category.toLowerCase()) : true
-    );
+    if (category.length === 0 || category === "all" ) { return products }
+    else {
+      const newProducts = products.filter(product =>
+        category ? product.category.toLowerCase().includes(category.toLowerCase()) : true
+      );
 
-    return newProducts
+      return newProducts
+    }
   }
   useEffect(() => {
     fetch('https://fakestoreapi.com/products')
