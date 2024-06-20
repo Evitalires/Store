@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://evitalires.github.io/store/"
+  "homepage": "https://evitalires.github.io/store/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
