@@ -25,8 +25,8 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/clothes'} className={({ isActive }) => activeStyle(isActive)}>
-            {'Clothes'}
+          <NavLink to={'/clothing'} className={({ isActive }) => activeStyle(isActive)}>
+            {'Clothing'}
           </NavLink>
         </li>
         <li>
@@ -35,18 +35,8 @@ function Navbar() {
           </NavLink>
         </li>
         <li>
-          <NavLink to={'/furniture'} className={({ isActive }) => activeStyle(isActive)}>
-            {'Furniture'}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={'/toys'} className={({ isActive }) => activeStyle(isActive)}>
-            {'Toys'}
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to={'/Others'} className={({ isActive }) => activeStyle(isActive)}>
-            {'Others'}
+          <NavLink to={'/jewelery'} className={({ isActive }) => activeStyle(isActive)}>
+            {'Jewelery'}
           </NavLink>
         </li>
       </ul>
